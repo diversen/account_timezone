@@ -43,11 +43,8 @@ class account_timezone {
             return;
         }
         
-        echo lang::translate('Current date and time according to setup');
-        echo "<br />";
-        echo strftime(config::getMainIni('date_format_long'));
-        
         moduleloader::includeModule('locales'); 
+        echo locales_views::timezoneInfo();
         
         $parent = config::getModuleIni('account_timezone_parent');        
         layout::setParentModuleMenu($parent);
